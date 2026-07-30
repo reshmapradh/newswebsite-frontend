@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getArticles } from "../api/articleService";
+import { getArticles } from "./articleService";
 
 import Navbar from "../components/Navbar";
 import PostCard from "../components/PostCard";

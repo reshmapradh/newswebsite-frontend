@@ -1,30 +1,46 @@
 import { useEffect, useState } from "react";
 import { getArticles } from "./articleService";
 
-function Home() {
-  const [articles, setArticles] = useState([]);
+import { useEffect, useState } from "react";
+import { getArticles } from "../api/articleService";
 
-  useEffect(() => {
-    getArticles().then((response) => {
-      setArticles(response.data);
-    });
-  }, []);
+import Navbar from "../components/Navbar";
+import PostCard from "../components/PostCard";
 
-  return (
-    <div>
-      <h1>Latest News</h1>
+export default function Home(){
 
-      {articles.map((article) => (
-        <div key={article.articleId}>
-          <img src={article.imageUrl} width="300" alt={article.title} />
+    const [articles,setArticles] = useState([]);
 
-          <h2>{article.title}</h2>
+    useEffect(()=>{
 
-          <p>{article.summary}</p>
-        </div>
-      ))}
-    </div>
-  );
+        getArticles()
+            .then(response=>{
+                setArticles(response.data);
+            })
+            .catch(console.error);
+
+    },[]);
+
+    return(
+
+        <>
+            <Navbar/>
+
+            <div className="grid grid-cols-3 gap-8">
+
+                {articles.map(article=>(
+                    <PostCard
+                        key={article.id}
+                        post={article}
+                    />
+                ))}
+
+            </div>
+
+        </>
+
+    )
+
 }
 
 export default Home;

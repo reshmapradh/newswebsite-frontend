@@ -9,3 +9,7 @@ export const getArticles = () => {
 export const getArticle = (id) => {
   return axios.get(`${BASE_URL}/${id}`);
 };
+
+export const getFeaturedArticles = () => {
+  return api.get(`${BASE_URL}/featured`);
+};

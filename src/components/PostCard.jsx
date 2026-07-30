@@ -33,19 +33,11 @@ text-slate-900
         <div className="flex items-center gap-3">
           <img src={post.avatar} className="w-10 h-10 rounded-full" />
 
-          <span>{post.author}</span>
+          <span>{post.author.fullName}</span>
         </div>
 
-        <span
-          className="
-bg-orange-100
-text-orange-500
-px-4
-py-2
-rounded
-"
-        >
-          {post.category}
+        <span className="bg-orange-100 text-orange-500 px-4 py-2 rounded">
+          {post.category.name}
         </span>
       </div>
 

@@ -9,7 +9,7 @@ shadow-sm
 "
     >
       <img
-        src={post.image}
+        src={post.imageUrl}
         className="
 rounded-xl
 w-full
@@ -31,7 +31,10 @@ text-slate-900
 
       <div className="flex justify-between mt-6">
         <div className="flex items-center gap-3">
-          <img src={post.avatar} className="w-10 h-10 rounded-full" />
+          <img
+            src={post.author.profileImage}
+            className="w-10 h-10 rounded-full"
+          />
 
           <span>{post.author.fullName}</span>
         </div>
@@ -47,7 +50,7 @@ mt-5
 text-gray-400
 "
       >
-        {post.date} ⏱ {post.read}
+        {post.publishedDate} ⏱ {post.readingTime}
       </div>
     </div>
   );
